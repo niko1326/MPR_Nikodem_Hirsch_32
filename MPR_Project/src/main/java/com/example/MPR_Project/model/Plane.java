@@ -1,13 +1,13 @@
 package com.example.MPR_Project.model;
 
-public class Planes {
+public class Plane {
     private String make;
     private String model;
     private String year;
     private Integer capacity;
     private Integer range;
 
-    public Planes(String make, String model, String year, Integer capacity, Integer range){
+    public Plane(String make, String model, String year, Integer capacity, Integer range){
         this.make = make;
         this.model = model;
         this.year = year;
