@@ -19,4 +19,8 @@ public class PlaneService {
     public List<Plane> getAll(){
         return this.planesList;
     }
+
+    public void add(Plane plane) {
+        planesList.add(plane);
+    }
 }
