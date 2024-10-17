@@ -1,12 +1,9 @@
-package com.example.MPR_Project.controllers;
+package com.example.MPR_Project.controller;
 
 import com.example.MPR_Project.model.Plane;
-import com.example.MPR_Project.services.PlaneService;
+import com.example.MPR_Project.service.PlaneService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,6 +15,11 @@ public class MyRestController {
     @GetMapping("plane/all")
     public List<Plane> getAllPlanes(){
         return planeService.getAll();
+    }
+
+    @GetMapping("plane/model/{model}")
+    public List<Plane> findByModel(@PathVariable String model){
+        return this.planeService.getByModel(model);
     }
 
     @PostMapping ("plane")

@@ -1,25 +1,39 @@
 package com.example.MPR_Project.model;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Plane {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String make;
     private String model;
-    private String year;
+    private String year_made;
     private Integer capacity;
-    private Integer range;
+    private Integer distance;
 
-    public Plane(String make, String model, String year, Integer capacity, Integer range){
+    public Plane(){
+
+    }
+
+    public Plane(String make, String model, String year_made, Integer capacity, Integer distance){
         this.make = make;
         this.model = model;
-        this.year = year;
+        this.year_made = year_made;
         this.capacity = capacity;
-        this.range = range;
+        this.distance = distance;
 
     }
     public String getMake() {
         return make;
     }
 
-    public void setMake(){
+    public void setMake(String make){
         this.make = make;
     }
 
@@ -27,33 +41,39 @@ public class Plane {
         return model;
     }
 
-    public void setModel(){
+    public void setModel(String model){
         this.model = model;
     }
 
-    public String getYear() {
-        return year;
+    public String getYear_made() {
+        return year_made;
     }
 
-    public void setYear(){
-        this.year = year;
+    public void setYear_made(String year_made){
+        this.year_made = year_made;
     }
 
     public Integer getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(){
+    public void setCapacity(Integer capacity){
         this.capacity = capacity;
     }
 
-    public Integer getRange() {
-        return range;
+    public Integer getDistance() {
+        return distance;
     }
 
-    public void setRange(){
-        this.range = range;
+    public void setDistance(Integer distance){
+        this.distance = distance;
     }
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
