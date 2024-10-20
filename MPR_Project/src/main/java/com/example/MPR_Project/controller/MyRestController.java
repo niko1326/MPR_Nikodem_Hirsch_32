@@ -8,22 +8,46 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/plane")
 public class MyRestController {
+
     @Autowired
     private PlaneService planeService;
 
-    @GetMapping("plane/all")
+    // GET all planes
+    @GetMapping("/all")
     public List<Plane> getAllPlanes(){
         return planeService.getAll();
     }
 
-    @GetMapping("plane/model/{model}")
-    public List<Plane> findByModel(@PathVariable String model){
-        return this.planeService.getByModel(model);
+    // GET plane by ID
+    @GetMapping("/{id}")
+    public Plane getPlaneById(@PathVariable Long id) {
+        return planeService.getById(id);
     }
 
-    @PostMapping ("plane")
-    public void addPlane(@RequestBody Plane plane){
+    // GET planes by model
+    @GetMapping("/model/{model}")
+    public List<Plane> findByModel(@PathVariable String model){
+        return planeService.getByModel(model);
+    }
+
+    // POST to add a new plane
+    @PostMapping("/add")
+    public void addPlane(@RequestBody Plane plane) {
         planeService.add(plane);
     }
+
+    // PATCH to update a plane by ID
+    @PatchMapping("/update/{id}")
+    public Plane updatePlane(@PathVariable Long id, @RequestBody Plane updatedPlane) {
+        return planeService.update(id, updatedPlane);
+    }
+
+    // DELETE a plane by ID
+    @DeleteMapping("/delete/{id}")
+    public void deletePlane(@PathVariable Long id) {
+        planeService.delete(id);
+    }
 }
+

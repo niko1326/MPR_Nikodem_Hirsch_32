@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface PlaneRepository extends CrudRepository<Plane,Long> {
     public List<Plane> findByModel(String model);
+
 }
